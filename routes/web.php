@@ -5,27 +5,20 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\Configuracion\RolController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use Illuminate\Support\Facades\Session;
 
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/lang/{language}', function ($language) {
+    Session::put('language', $language);
+    return redirect()->back();
+})->name('language');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('home');
-
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'translate'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
     Route::resource('roles', RolController::class)->names('roles');
     Route::resource('users', UserController::class)->names('users');
 

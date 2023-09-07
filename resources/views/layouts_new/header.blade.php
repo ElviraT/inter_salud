@@ -53,18 +53,22 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="flag-icon flag-icon-us"></i>
+                        <span class="fi fi-es"></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-animate-up"
                         aria-labelledby="navbarDropdown2">
-                        <a class="dropdown-item" href="#"><i class="me-2 flag-icon flag-icon-us"></i>
-                            English</a>
-                        <a class="dropdown-item" href="#"><i class="me-2 flag-icon flag-icon-fr"></i>
-                            French</a>
-                        <a class="dropdown-item" href="#"><i class="me-2 flag-icon flag-icon-es"></i>
-                            Spanish</a>
-                        <a class="dropdown-item" href="#"><i class="me-2 flag-icon flag-icon-de"></i>
-                            German</a>
+                        <a class="dropdown-item" href="{{ route('language', 'es') }}">
+                            <span class="fi fi-es"></span>
+                            {{ __('es.Spanish') }}</a>
+                        <a class="dropdown-item" href="{{ route('language', 'en') }}">
+                            <span class="fi fi-us"></span>
+                            {{ __('es.English') }}</a>
+                        <a class="dropdown-item" href="#">
+                            <span class="fi fi-fr"></span>
+                            {{ __('es.French') }}</a>
+                        <a class="dropdown-item" href="#">
+                            <span class="fi fi-de"></span>
+                            {{ __('es.German') }}</a>
                     </div>
                 </li>
 
@@ -74,23 +78,22 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                            src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/assets/images/users/1.jpg"
+                            @if (isset($foto->Foto_Medico) && $foto->Foto_Medico == '') src="{{ 'avatars/' . str_replace('\\', '/', $foto->Foto_Medico) }}"  @else src="{{ Avatar::create(auth()->user()->name)->toBase64() }}" @endif
                             alt="user" class="rounded-circle" width="31" /></a>
                     <div class="dropdown-menu dropdown-menu-end user-dd animated flipInY">
                         <span class="with-arrow"><span class="bg-primary"></span></span>
                         <div class="d-flex no-block align-items-center p-3 bg-primary text-white mb-2">
                             <div class="">
-                                <img src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/assets/images/users/1.jpg"
+                                <img @if (isset($foto->Foto_Medico) && $foto->Foto_Medico == '') src="{{ 'avatars/' . str_replace('\\', '/', $foto->Foto_Medico) }}"  @else src="{{ Avatar::create(auth()->user()->name)->toBase64() }}" @endif
                                     alt="user" class="rounded-circle" width="60" />
                             </div>
                             <div class="ms-2">
-                                <h4 class="mb-0">Steave Jobs</h4>
-                                <p class="mb-0">varun@gmail.com</p>
+                                <h4 class="mb-0">{{ auth()->user()->name }}</h4>
+                                <p class="mb-0">{{ auth()->user()->email }}</p>
                             </div>
                         </div>
                         <a class="dropdown-item" href="#"><i data-feather="user"
-                                class="feather-sm text-info me-1 ms-1"></i> My
-                            Profile</a>
+                                class="feather-sm text-info me-1 ms-1"></i> {{ __('es.My_Profile') }}</a>
                         <a class="dropdown-item" href="#"><i data-feather="credit-card"
                                 class="feather-sm text-primary me-1 ms-1"></i> My
                             Balance</a>
@@ -99,7 +102,7 @@
                         <a class="dropdown-item"
                             href="{{ route('logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
                                 data-feather="log-out" class="feather-sm text-danger me-1 ms-1"></i>
-                            {{ 'Logout' }}</a>
+                            {{ __('es.Logout') }}</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>

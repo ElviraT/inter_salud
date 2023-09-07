@@ -14,13 +14,37 @@
     <meta name="description"
         content="Xtreme is powerful and clean admin dashboard template, inpired from Google's Material Design" />
     <meta name="robots" content="noindex,nofollow" />
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/css/flag-icons.min.css" />
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/favicon.png') }}" />
     <!-- Custom CSS -->
-
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+    <!--Datatable-->
+    <link href="{{ asset('css/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/buttons.bootstrap4.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/responsive.bootstrap.min.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet" />
+    <style>
+        body::-webkit-scrollbar {
+            width: 15px;
+            /* width of the entire scrollbar */
+        }
+
+        body::-webkit-scrollbar-track {
+            background: #448aff;
+            /* color of the tracking area */
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: #1aeb72;
+            /* color of the scroll thumb */
+            border-radius: 20px;
+            /* roundness of the scroll thumb */
+            border: 3px solid #;
+            /* creates padding around scroll thumb */
+        }
+    </style>
 
 </head>
 
@@ -77,55 +101,41 @@
     <!-- -------------------------------------------------------------- -->
     <!-- Required Js files -->
     <!-- -------------------------------------------------------------- -->
-    <script
-        src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/dist/libs/jquery/dist/jquery.min.js">
-    </script>
+    <script src="{{ asset('js_new/jquery.min.js') }}"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script
-        src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js">
-    </script>
+    <script src="{{ asset('js_new/bootstrap.bundle.min.js') }}"></script>
     <!-- Theme Required Js -->
-    <script src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/dist/js/app.min.js">
-    </script>
-    <script
-        src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/dist/js/app.init.js">
-    </script>
-    <script
-        src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/dist/js/app-style-switcher.js">
-    </script>
+    <script src="{{ asset('js_new/app.min.js') }}"></script>
+    <script src="{{ asset('js_new/app.init.js') }}"></script>
+    <script src="{{ asset('js_new/switcher.js') }}"></script>
     <!-- perfect scrollbar JavaScript -->
-    <script
-        src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/dist/libs/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.js">
-    </script>
-    <script
-        src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/dist/libs/jquery-sparkline/jquery.sparkline.min.js">
-    </script>
+    <script src="{{ asset('js_new/perfect-scrollbar.jquery.js') }}"></script>
+    <script src="{{ asset('js_new/sparkline.min.js') }}"></script>
     <!--Wave Effects -->
-    <script src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/dist/js/waves.js">
-    </script>
+    <script src="{{ asset('js_new/waves.js') }}"></script>
     <!--Menu sidebar -->
-    <script
-        src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/dist/js/sidebarmenu.js">
-    </script>
+    <script src="{{ asset('js_new/sidebarmenu.js') }}"></script>
     <!--Custom JavaScript -->
-    <script
-        src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/dist/js/feather.min.js">
-    </script>
-    <script
-        src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/dist/js/custom.min.js">
-    </script>
+    <script src="{{ asset('js_new/feather.min.js') }}"></script>
+    <script src="{{ asset('js_new/custom.min.js') }}"></script>
+    {{-- datatable --}}
+    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('js/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('js/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('js/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('js/buttons.html5.min.js') }}"></script>
+
+    <script src="{{ asset('js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('js/responsive.bootstrap.min.js') }}"></script>
     <!-- --------------------------------------------------------------- -->
     <!-- This page JavaScript -->
     <!-- --------------------------------------------------------------- -->
-    <script
-        src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/dist/libs/apexcharts/dist/apexcharts.min.js">
-    </script>
-    <script
-        src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/dist/js/pages/dashboards/dashboard1.js">
-    </script>
+    {{-- <script src="{{ asset('js_new/apexcharts.min.js') }}"></script> --}}
+    <script src="{{ asset('js_new/dashboard1.js') }}"></script>
     @include('layouts_new.funciones')
+    @yield('js')
+    @yield('modal')
 </body>
-
-<!-- Mirrored from demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/ltr/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Sep 2023 20:41:06 GMT -->
 
 </html>

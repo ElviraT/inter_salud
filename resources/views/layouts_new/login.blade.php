@@ -67,20 +67,10 @@
             <!-- -------------------------------------------------------------- -->
             <!-- All Required js -->
             <!-- -------------------------------------------------------------- -->
-            <script
-                src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/dist/libs/jquery/dist/jquery.min.js">
-            </script>
-            <!-- Bootstrap tether Core JavaScript -->
-            <script
-                src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js">
-            </script>
-            <!--Custom JavaScript -->
-            <script
-                src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/dist/js/feather.min.js">
-            </script>
-            <script
-                src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/dist/js/custom.min.js">
-            </script>
+            <script src="{{ asset('js_new/jquery.min.js') }}"></script>
+            <script src="{{ asset('js_new/bootstrap.bundle.min.js') }}"></script>
+            <script src="{{ asset('js_new/feather.min.js') }}"></script>
+            <script src="{{ asset('js_new/custom.min.js') }}"></script>
             <!-- -------------------------------------------------------------- -->
             <!-- This page plugin js -->
             <!-- -------------------------------------------------------------- -->

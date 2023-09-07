@@ -83,7 +83,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -110,6 +110,20 @@ return [
     */
 
     'faker_locale' => 'en_US',
+
+    /*
+|--------------------------------------------------------------------------
+| Available locales
+|--------------------------------------------------------------------------
+|
+| List all locales that your application works with
+|
+*/
+    'available_locales' => [
+        'English' => 'en',
+        'Spanish' => 'es',
+        'French' => 'fr',
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -170,6 +184,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Laravolt\Avatar\ServiceProvider::class,
+        Laraveles\Spanish\SpanishServiceProvider::class,
     ])->toArray(),
 
     /*
