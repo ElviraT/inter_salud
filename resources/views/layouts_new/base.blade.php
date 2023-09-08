@@ -23,6 +23,10 @@
     <link href="{{ asset('css/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/buttons.bootstrap4.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/responsive.bootstrap.min.css') }}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0- 
+     alpha/css/bootstrap.css"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
     <!-- Custom CSS -->
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet" />
     <style>
@@ -45,7 +49,7 @@
             /* creates padding around scroll thumb */
         }
     </style>
-
+    @yield('css')
 </head>
 
 <body>
@@ -76,8 +80,9 @@
         @include('layouts_new.menu_left')
         <div class="page-wrapper">
             <div class="col-12 p-2">
-                <div class="row">
-                    <span id="saludo"> <strong>{{ auth()->user()->name }}</strong></span>
+                <div class="row saludo">
+                    <span id="saludo">
+                        <strong>{{ auth()->user()->name }}</strong>{{ __('Current Time') }}{{ date('h:i A') }}</span>
                 </div>
             </div>
             {{-- migas de pan --}}
@@ -86,6 +91,7 @@
             <div class="container-fluid">
                 @yield('content')
             </div>
+            @yield('modal')
             <!-- footer -->
             <!-- -------------------------------------------------------------- -->
             @include('layouts_new.footer')
@@ -104,6 +110,8 @@
     <script src="{{ asset('js_new/jquery.min.js') }}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{ asset('js_new/bootstrap.bundle.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/popper.js/popper.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/bootstrap/js/bootstrap.min.js') }} "></script>
     <!-- Theme Required Js -->
     <script src="{{ asset('js_new/app.min.js') }}"></script>
     <script src="{{ asset('js_new/app.init.js') }}"></script>
@@ -128,6 +136,8 @@
 
     <script src="{{ asset('js/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('js/responsive.bootstrap.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    {!! Toastr::message() !!}
     <!-- --------------------------------------------------------------- -->
     <!-- This page JavaScript -->
     <!-- --------------------------------------------------------------- -->
@@ -135,7 +145,6 @@
     <script src="{{ asset('js_new/dashboard1.js') }}"></script>
     @include('layouts_new.funciones')
     @yield('js')
-    @yield('modal')
 </body>
 
 </html>

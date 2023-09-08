@@ -10297,7 +10297,7 @@
 }
 @font-face {
     font-family: remixicon;
-    src: url(icons/remixicon-icons/remixicon.eot?t=1590207869815);
+    /* src: url(icons/remixicon-icons/remixicon.eot?t=1590207869815);
     src: url(icons/remixicon-icons/remixicon.eot?t=1590207869815#iefix)
             format("embedded-opentype"),
         url(icons/remixicon-icons/remixicon.woff2?t=1590207869815)
@@ -10306,7 +10306,7 @@
         url(icons/remixicon-icons/remixicon.ttf?t=1590207869815)
             format("truetype"),
         url(icons/remixicon-icons/remixicon.svg?t=1590207869815#remixicon)
-            format("svg");
+            format("svg"); */
     font-display: swap;
 }
 [class*=" ri-"],
@@ -50996,4 +50996,23 @@ table.footable
 .toggle[class*="btn-outline"]:hover .toggle-handle {
     background-color: var(--bs-light);
     opacity: 0.5;
+}
+.text-green{
+color: green;
+}
+.sombra{
+    -webkit-box-shadow: 10px 9px 5px 0px rgba(214,214,214,1);
+    -moz-box-shadow: 10px 9px 5px 0px rgba(214,214,214,1);
+    box-shadow: 10px 9px 5px 0px rgba(214,214,214,1);
+}
+.saludo{
+font-size: 18px !important;
+}
+.modal-header-danger{
+background-color: red;
+color: white;
+}
+.modal-header-primary{
+background-color: var(--bs-primary); 
+color: white;
 }

@@ -45,177 +45,45 @@
                 <li class="sidebar-item {{ @request()->routeIs('dashboard') ? 'active' : ' ' }}">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('dashboard') }}"
                         aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
-                            class="hide-menu">{{ 'Dashboard' }}</span></a>
+                            class="hide-menu">{{ __('Dashboard') }}</span></a>
                 </li>
                 <li class="nav-small-cap">
                     <i data-feather="more-horizontal" class="feather-icon"></i>
                     <span class="hide-menu">{{ __('menu.Configuration') }}</span>
                 </li>
 
-                <li class="sidebar-item">
+                <li class="sidebar-item {{ @request()->routeIs('roles*') ? 'active' : ' ' }}">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
                             data-feather="sidebar" class="feather-icon"></i><span
                             class="hide-menu">{{ __('menu.Sistem') }}
                         </span></a>
                     <ul aria-expanded="false" class="collapse first-level">
-                        @can('role-list')
+                        @can('roles.index')
                             <li class="sidebar-item {{ @request()->routeIs('roles*') ? 'active' : ' ' }}">
                                 <a href="{{ route('roles.index') }}" class="sidebar-link"><i
-                                        class="mdi mdi-view-quilt"></i><span class="hide-menu">
+                                        class="ri-arrow-right-s-line"></i><span class="hide-menu">
                                         {{ __('menu.Role') }} </span></a>
                             </li>
                         @endcan
-                        <li class="sidebar-item">
-                            <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/ltr/sidebar-type-iconsidebar.html"
-                                class="sidebar-link"><i class="mdi mdi-view-parallel"></i><span class="hide-menu">
-                                    Icon Sidebar </span></a>
-                        </li>
+                        @canany(['countries.index', 'estado', 'ciudad', 'municipio', 'parroquia'])
+                            <li class="sidebar-item {{ @request()->routeIs('countries*') ? 'active' : ' ' }}">
+                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="#"
+                                    aria-expanded="false"><i data-feather="map-pin" class="feather-icon"></i><span
+                                        class="hide-menu">{{ __('menu.Direction') }}
+                                    </span></a>
+                                <ul aria-expanded="false" class="collapse first-level">
+                                    <li class="sidebar-item {{ @request()->routeIs('countries*') ? 'active' : ' ' }}">
+                                        <a href="{{ route('countries.index') }}" class="sidebar-link"><i
+                                                class="ri-arrow-right-s-line"></i><span class="hide-menu">
+                                                {{ __('menu.Country') }} </span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endcanany
                         <li class="sidebar-item">
                             <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/ltr/sidebar-type-overlaysidebar.html"
                                 class="sidebar-link"><i class="mdi mdi-view-day"></i><span class="hide-menu"> Overlay
                                     Sidebar </span></a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/ltr/sidebar-type-fullsidebar.html"
-                                class="sidebar-link"><i class="mdi mdi-view-array"></i><span class="hide-menu"> Full
-                                    Sidebar </span></a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/ltr/sidebar-type-horizontalsidebar.html"
-                                class="sidebar-link"><i class="mdi mdi-view-module"></i><span class="hide-menu">
-                                    Horizontal Sidebar </span></a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
-                            data-feather="clipboard" class="feather-icon"></i><span class="hide-menu">Page Layouts
-                        </span></a>
-                    <ul aria-expanded="false" class="collapse first-level">
-                        <li class="sidebar-item">
-                            <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/ltr/layout-inner-fixed-left-sidebar.html"
-                                class="sidebar-link"><i class="mdi mdi-format-align-left"></i><span class="hide-menu">
-                                    Inner Fixed Left Sidebar </span></a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/ltr/layout-inner-fixed-right-sidebar.html"
-                                class="sidebar-link"><i class="mdi mdi-format-align-right"></i><span
-                                    class="hide-menu"> Inner Fixed Right Sidebar </span></a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/ltr/layout-inner-left-sidebar.html"
-                                class="sidebar-link"><i class="mdi mdi-format-float-left"></i><span
-                                    class="hide-menu"> Inner Left Sidebar </span></a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/ltr/layout-inner-right-sidebar.html"
-                                class="sidebar-link"><i class="mdi mdi-format-float-right"></i><span
-                                    class="hide-menu"> Inner Right Sidebar </span></a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/ltr/page-layout-fixed-header.html"
-                                class="sidebar-link"><i class="mdi mdi-view-quilt"></i><span class="hide-menu"> Fixed
-                                    Header </span></a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/ltr/page-layout-fixed-sidebar.html"
-                                class="sidebar-link"><i class="mdi mdi-view-parallel"></i><span class="hide-menu">
-                                    Fixed Sidebar </span></a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/ltr/page-layout-fixed-header-sidebar.html"
-                                class="sidebar-link"><i class="mdi mdi-view-column"></i><span class="hide-menu">
-                                    Fixed Header &amp; Sidebar </span></a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/ltr/page-layout-boxed-layout.html"
-                                class="sidebar-link"><i class="mdi mdi-view-carousel"></i><span class="hide-menu">
-                                    Box Layout </span></a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-small-cap">
-                    <i class="mdi mdi-dots-horizontal"></i>
-                    <span class="hide-menu">Apps</span>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/ltr/app-chats.html"
-                        aria-expanded="false"><i data-feather="message-circle" class="feather-icon"></i><span
-                            class="hide-menu">Chat Apps</span></a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/ltr/app-todo.html"
-                        aria-expanded="false"><i data-feather="check-circle" class="feather-icon"></i><span
-                            class="hide-menu">Todo</span></a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/ltr/app-calendar.html"
-                        aria-expanded="false"><i data-feather="calendar" class="feather-icon"></i><span
-                            class="hide-menu">Calendar</span></a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/ltr/app-taskboard.html"
-                        aria-expanded="false"><i data-feather="layout" class="feather-icon"></i><span
-                            class="hide-menu">Taskboard</span></a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/ltr/app-contacts.html"
-                        aria-expanded="false"><i data-feather="phone" class="feather-icon"></i><span
-                            class="hide-menu">Contact</span></a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/ltr/app-notes.html"
-                        aria-expanded="false"><i data-feather="book" class="feather-icon"></i><span
-                            class="hide-menu">Notes</span></a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/ltr/app-invoice.html"
-                        aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
-                            class="hide-menu">Invoice</span></a>
-                </li>
-
-                <li class="sidebar-item">
-                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
-                            data-feather="mail" class="feather-icon"></i><span class="hide-menu">Inbox </span></a>
-                    <ul aria-expanded="false" class="collapse first-level">
-                        <li class="sidebar-item">
-                            <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/ltr/inbox-email.html"
-                                class="sidebar-link"><i class="mdi mdi-email"></i><span class="hide-menu"> Email
-                                </span></a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/ltr/inbox-email-detail.html"
-                                class="sidebar-link"><i class="mdi mdi-email-alert"></i><span class="hide-menu">
-                                    Email Detail </span></a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/ltr/inbox-email-compose.html"
-                                class="sidebar-link"><i class="mdi mdi-email-secure"></i><span class="hide-menu">
-                                    Email Compose </span></a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
-                            data-feather="bookmark" class="feather-icon"></i><span class="hide-menu">Ticket
-                        </span></a>
-                    <ul aria-expanded="false" class="collapse first-level">
-                        <li class="sidebar-item">
-                            <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/ltr/ticket-list.html"
-                                class="sidebar-link"><i class="mdi mdi-book-multiple"></i><span class="hide-menu">
-                                    Ticket List </span></a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/ltr/ticket-detail.html"
-                                class="sidebar-link"><i class="mdi mdi-book-plus"></i><span class="hide-menu"> Ticket
-                                    Detail </span></a>
                         </li>
                     </ul>
                 </li>

@@ -96,7 +96,23 @@
             return false;
         }
     }
+    $('#confirm-delete').on('show.bs.modal', function(e) {
+        var data = $(e.relatedTarget).data();
+        $("#form-eliminar").attr('action', data.action);
+        $('#id').val(data.recordId);
+        $('.title', this).text(data.recordTitle);
+        $('.btn-ok', this).data('recordId', data.recordId);
+    });
 
+    $(document).ready(function() {
+        var table_roles = $('#AllDataTable').DataTable({
+            lengthChange: false,
+            responsive: true,
+            language: {
+                url: "{{ asset('js/Spanish.json') }}",
+            },
+        });
+    });
     // $(document).on('ajaxStart', function() {
     //     loading_show();
     // })

@@ -70,7 +70,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/Caracas',
 
     /*
     |--------------------------------------------------------------------------
@@ -110,20 +110,6 @@ return [
     */
 
     'faker_locale' => 'en_US',
-
-    /*
-|--------------------------------------------------------------------------
-| Available locales
-|--------------------------------------------------------------------------
-|
-| List all locales that your application works with
-|
-*/
-    'available_locales' => [
-        'English' => 'en',
-        'Spanish' => 'es',
-        'French' => 'fr',
-    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -201,6 +187,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
         'Avatar'    => Laravolt\Avatar\Facade::class,
+        'Toastr'    => Brian2694\Toastr\Facades\Toastr::class,
     ])->toArray(),
 
 ];

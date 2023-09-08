@@ -1130,5 +1130,18 @@
     "List Roles": "List Roles",
     "Add Role": "Add Role",
     "Registered Medical": "Registered Medical",
-    "Registered Patients": "Registered Patients"
+    "Registered Patients": "Registered Patients",
+    "Consultations of the month": "Consultations of the month",
+    "Consulting room": "Consulting room",
+    "Current Time": "  Current Time - ",
+    "Appointments of the day": "Appointments of the day",
+    "Back":"Back",
+    "Record added successfully": "Record added successfully!",
+    "Successfully updated registration": "Successfully updated registration!",
+    "Registry successfully deleted": "Registry successfully deleted!",
+    "You're deleting" : "You're deleting",
+    "This process is irreversible": "This process is irreversible.",
+    "Do you want to continue": "Do you want to continue?",
+    "Edit Role": "Edit Role",
+    "Delete Role": "Delete Role"
 }

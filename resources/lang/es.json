@@ -1129,7 +1129,23 @@
     "List Roles": "Lista de roles",
     "Add Role": "Agregar Rol",
     "Registered Medical": " Médicos Registrados",
-    "Registered Patients": "Pacientes Registrados"
+    "Registered Patients": "Pacientes Registrados",
+    "Consultations of the month": "Consultas del Mes",
+    "Consulting room": "Consultorios",
+    "Current Time": "  Hora Actual - ",
+    "Appointments of the day": "Citas del día",
+    "Back": "Volver",
+    "Record added successfully": "Registro agregado ¡correctamente!",
+    "Successfully updated registration": "Registro actualizado con ¡éxito!",
+    "Registry successfully deleted": "Registro eliminado con ¡éxito!",
+    "You're deleting": "Vas a eliminar",
+    "This process is irreversible": "este proceso es irreversible.",
+    "Do you want to continue": "¿Deseas continuar?",
+    "Edit Role": "Editar Rol",
+    "Delete Role": "Eliminar Rol"
+
+
+
 
 
 
