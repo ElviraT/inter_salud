@@ -18,37 +18,17 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/favicon.png') }}" />
     <!-- Custom CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="{{ asset('css/remixicon.css') }}" rel="stylesheet">
     <!--Datatable-->
     <link href="{{ asset('css/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/buttons.bootstrap4.min.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('css/buttons.bootstrap4.min.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('css/responsive.bootstrap.min.css') }}" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0- 
-     alpha/css/bootstrap.css"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" --}}
+    {{-- rel="stylesheet"> --}}
+    <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}" />
     <!-- Custom CSS -->
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet" />
-    <style>
-        body::-webkit-scrollbar {
-            width: 15px;
-            /* width of the entire scrollbar */
-        }
 
-        body::-webkit-scrollbar-track {
-            background: #448aff;
-            /* color of the tracking area */
-        }
-
-        body::-webkit-scrollbar-thumb {
-            background-color: #1aeb72;
-            /* color of the scroll thumb */
-            border-radius: 20px;
-            /* roundness of the scroll thumb */
-            border: 3px solid #;
-            /* creates padding around scroll thumb */
-        }
-    </style>
     @yield('css')
 </head>
 
@@ -82,7 +62,10 @@
             <div class="col-12 p-2">
                 <div class="row saludo">
                     <span id="saludo">
-                        <strong>{{ auth()->user()->name }}</strong>{{ __('Current Time') }}{{ date('h:i A') }}</span>
+                        <strong>{{ auth()->user()->name }}</strong>{{ __('Current Time') }}<span id="relojnumerico"
+                            class="reloj" onload="cargarReloj()">
+                            <!-- Acá mostraremos el reloj desde JavaScript -->
+                        </span></span>
                 </div>
             </div>
             {{-- migas de pan --}}
@@ -120,7 +103,7 @@
     <script src="{{ asset('js_new/perfect-scrollbar.jquery.js') }}"></script>
     <script src="{{ asset('js_new/sparkline.min.js') }}"></script>
     <!--Wave Effects -->
-    <script src="{{ asset('js_new/waves.js') }}"></script>
+    {{-- <script src="{{ asset('js_new/waves.js') }}"></script> --}}
     <!--Menu sidebar -->
     <script src="{{ asset('js_new/sidebarmenu.js') }}"></script>
     <!--Custom JavaScript -->
@@ -128,21 +111,21 @@
     <script src="{{ asset('js_new/custom.min.js') }}"></script>
     {{-- datatable --}}
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ asset('js/buttons.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('js/pdfmake.min.js') }}"></script>
-    <script src="{{ asset('js/vfs_fonts.js') }}"></script>
-    <script src="{{ asset('js/buttons.html5.min.js') }}"></script>
+    {{-- <script src="{{ asset('js/dataTables.buttons.min.js') }}"></script> --}}
+    {{-- <script src="{{ asset('js/buttons.bootstrap4.min.js') }}"></script> --}}
+    {{-- <script src="{{ asset('js/pdfmake.min.js') }}"></script> --}}
+    {{-- <script src="{{ asset('js/vfs_fonts.js') }}"></script> --}}
+    {{-- <script src="{{ asset('js/buttons.html5.min.js') }}"></script> --}}
 
     <script src="{{ asset('js/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('js/responsive.bootstrap.min.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="{{ asset('js_new/toastr.min.js') }}"></script>
     {!! Toastr::message() !!}
     <!-- --------------------------------------------------------------- -->
     <!-- This page JavaScript -->
     <!-- --------------------------------------------------------------- -->
     {{-- <script src="{{ asset('js_new/apexcharts.min.js') }}"></script> --}}
-    <script src="{{ asset('js_new/dashboard1.js') }}"></script>
+    {{-- <script src="{{ asset('js_new/dashboard1.js') }}"></script> --}}
     @include('layouts_new.funciones')
     @yield('js')
 </body>

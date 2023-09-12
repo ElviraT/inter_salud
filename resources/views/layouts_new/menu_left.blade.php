@@ -65,21 +65,6 @@
                                         {{ __('menu.Role') }} </span></a>
                             </li>
                         @endcan
-                        @canany(['countries.index', 'estado', 'ciudad', 'municipio', 'parroquia'])
-                            <li class="sidebar-item {{ @request()->routeIs('countries*') ? 'active' : ' ' }}">
-                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="#"
-                                    aria-expanded="false"><i data-feather="map-pin" class="feather-icon"></i><span
-                                        class="hide-menu">{{ __('menu.Direction') }}
-                                    </span></a>
-                                <ul aria-expanded="false" class="collapse first-level">
-                                    <li class="sidebar-item {{ @request()->routeIs('countries*') ? 'active' : ' ' }}">
-                                        <a href="{{ route('countries.index') }}" class="sidebar-link"><i
-                                                class="ri-arrow-right-s-line"></i><span class="hide-menu">
-                                                {{ __('menu.Country') }} </span></a>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endcanany
                         <li class="sidebar-item">
                             <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/ltr/sidebar-type-overlaysidebar.html"
                                 class="sidebar-link"><i class="mdi mdi-view-day"></i><span class="hide-menu"> Overlay
@@ -87,6 +72,30 @@
                         </li>
                     </ul>
                 </li>
+                @canany(['countries.index', 'states.index', 'ciudad', 'municipio', 'parroquia'])
+                    <li class="sidebar-item {{ @request()->routeIs('countries*') ? 'active' : ' ' }}">
+                        <a class="sidebar-link has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                                data-feather="map-pin" class="feather-icon"></i><span
+                                class="hide-menu">{{ __('menu.Direction') }}
+                            </span></a>
+                        <ul aria-expanded="false" class="collapse first-level">
+                            @can('countries.index')
+                                <li class="sidebar-item {{ @request()->routeIs('countries*') ? 'active' : ' ' }}">
+                                    <a href="{{ route('countries.index') }}" class="sidebar-link"><i
+                                            class="ri-arrow-right-s-line"></i><span class="hide-menu">
+                                            {{ __('menu.Country') }} </span></a>
+                                </li>
+                            @endcan
+                            @can('states.index')
+                                <li class="sidebar-item {{ @request()->routeIs('states*') ? 'active' : ' ' }}">
+                                    <a href="{{ route('states.index') }}" class="sidebar-link"><i
+                                            class="ri-arrow-right-s-line"></i><span class="hide-menu">
+                                            {{ __('menu.State') }} </span></a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
+                @endcanany
                 <li class="sidebar-item">
                     <a class="dropdown-item"
                         href="{{ route('logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i

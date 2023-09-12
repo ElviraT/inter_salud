@@ -113,6 +113,56 @@
             },
         });
     });
+
+    function cargarReloj() {
+
+        // Haciendo uso del objeto Date() obtenemos la hora, minuto y segundo 
+        var fechahora = new Date();
+        var hora = fechahora.getHours();
+        var minuto = fechahora.getMinutes();
+        console.log(fechahora);
+        // Variable meridiano con el valor 'AM' 
+        var meridiano = "AM";
+
+
+        // Si la hora es igual a 0, declaramos la hora con el valor 12 
+        if (hora == 0) {
+
+            hora = 00;
+            meridiano = "AM";
+
+        }
+
+        // Si la hora es mayor a 12, restamos la hora - 12 y mostramos la variable meridiano con el valor 'PM' 
+        if (hora > 12) {
+
+            hora = hora - 12;
+
+            // Variable meridiano con el valor 'PM' 
+            meridiano = "PM";
+
+        }
+        if (hora == 12) {
+            meridiano = "PM";
+        }
+
+        // Formateamos los ceros '0' del reloj 
+        hora = (hora < 10) ? "0" + hora : hora;
+        minuto = (minuto < 10) ? "0" + minuto : minuto;
+        // meridiano = (hora >= 12) ? "PM" : "AM";
+
+        // Enviamos la hora a la vista HTML 
+        var tiempo = hora + ":" + minuto + meridiano;
+        document.getElementById("relojnumerico").innerText = tiempo;
+        document.getElementById("relojnumerico").textContent = tiempo;
+
+        // Cargamos el reloj a los 500 milisegundos 
+        setTimeout(cargarReloj, 30000);
+
+    }
+
+    // Ejecutamos la función 'CargarReloj' 
+    cargarReloj();
     // $(document).on('ajaxStart', function() {
     //     loading_show();
     // })

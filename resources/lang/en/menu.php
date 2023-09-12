@@ -4,7 +4,6 @@ return [
     'Sistem' => 'Sistem',
     'Role' => 'Roles',
     'Direction' => 'Direction',
-    'Country' => 'Country'
-
-
+    'Country' => 'Country',
+    'State' => 'State',
 ];

@@ -5,4 +5,5 @@ return [
     'Role' => 'Roles',
     'Direction' => 'Dirección',
     'Country' => 'País',
+    'State' => 'Estado',
 ];

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\configuracion\direccion;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Brian2694\Toastr\Facades\Toastr;
 use App\Models\Country;
 
 class CountryController extends Controller
@@ -22,67 +23,49 @@ class CountryController extends Controller
         return view('admin.configuracion.direccion.paises.index', compact('countries'));
     }
 
-    // public function create()
-    // {
-    //     return view('admin.configuracion.direccion.paises.create', compact('permission'));
-    // }
 
-    // /**
-    //  * Store a newly created resource in storage.
-    //  *
-    //  * @param  \Illuminate\Http\Request  $request
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function store(Request $request)
-    // {
-    //     $this->validate($request, [
-    //         'name' => 'required|unique:roles,name',
-    //         // 'permission' => 'required',
-    //     ]);
-    //     try {
-    //         $role = Role::create(['name' => $request->input('name')]);
-    //         $role->syncPermissions($request->permissions);
-    //         // dd($role);
-    //         Toastr::success(__('Record added successfully'), 'Success');
-    //     } catch (\Illuminate\Database\QueryException $e) {
-    //         Toastr::error(__('An error occurred please try again'), 'error');
-    //     }
-    //     return to_route('roles.index');
-    // }
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|unique:countries,name',
+            // 'permission' => 'required',
+        ]);
+        try {
+            $country = Country::create(['name' => $request->input('name')]);
 
-    // public function edit($id)
-    // {
-    //     $role = Role::find($id);
-    //     $permission = Permission::get();
-    //     $rolePermissions = DB::table("role_has_permissions")->where("role_has_permissions.role_id", $id)
-    //         ->pluck('role_has_permissions.permission_id', 'role_has_permissions.permission_id')
-    //         ->all();
+            Toastr::success(__('Record added successfully'), 'Success');
+        } catch (\Illuminate\Database\QueryException $e) {
+            Toastr::error(__('An error occurred please try again'), 'error');
+        }
+        return to_route('countries.index');
+    }
 
-    //     return view('admin.configuracion.roles.edit', compact('role', 'permission', 'rolePermissions'));
-    // }
+    public function edit($id)
+    {
+        $country = Country::find($id);
+        return response()->json([$country]);
+    }
 
-    // public function update(Request $request, $id)
-    // {
-    //     $this->validate($request, [
-    //         'name' => 'required',
-    //     ]);
-    //     try {
-    //         $role = Role::find($id);
-    //         $role->name = $request->input('name');
-    //         $role->save();
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'name' => 'required|unique:countries,name'
+        ]);
+        try {
+            $country = Country::find($id);
+            $country->name = $request->input('name');
+            $country->save();
 
-    //         $role->syncPermissions($request->permissions);
-
-    //         Toastr::success(__('Successfully updated registration'), 'Success');
-    //     } catch (\Illuminate\Database\QueryException $e) {
-    //         Toastr::error(__('An error occurred please try again'), 'error');
-    //     }
-    //     return to_route('roles.index');
-    // }
-    // public function destroy(Role $role)
-    // {
-    //     $role->delete();
-    //     Toastr::success(__('Registry successfully deleted'), 'Success');
-    //     return to_route('roles.index');
-    // }
+            Toastr::success(__('Successfully updated registration'), 'Success');
+        } catch (\Illuminate\Database\QueryException $e) {
+            Toastr::error(__('An error occurred please try again'), 'error');
+        }
+        return to_route('countries.index');
+    }
+    public function destroy(Country $country)
+    {
+        $country->delete();
+        Toastr::success(__('Registry successfully deleted'), 'Success');
+        return to_route('countries.index');
+    }
 }

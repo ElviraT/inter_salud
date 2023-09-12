@@ -4,10 +4,11 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\configuracion\direccion\CountryController;
+use App\Http\Controllers\Admin\configuracion\direccion\StateController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
-Route::get('/inicio', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/lang/{language}', function ($language) {
@@ -21,6 +22,7 @@ Route::middleware(['auth', 'translate'])->group(function () {
     })->name('dashboard');
     Route::resource('roles', RoleController::class)->except(['show'])->names('roles');
     Route::resource('countries', CountryController::class)->except(['show'])->names('countries');
+    Route::resource('states', StateController::class)->except(['show'])->names('states');
     Route::resource('users', UserController::class)->names('users');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

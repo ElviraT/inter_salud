@@ -1142,7 +1142,14 @@
     "This process is irreversible": "este proceso es irreversible.",
     "Do you want to continue": "¿Deseas continuar?",
     "Edit Role": "Editar Rol",
-    "Delete Role": "Eliminar Rol"
+    "Delete Role": "Eliminar Rol",
+    "List Country": "Lista de Paises",
+    "Edit Country": "Editar País",
+    "Delete Country": "Eliminar País",
+    "List State": "Lista de Estados",
+    "Edit State": "Editar Estado",
+    "Delete State": "Eliminar Estado"
+
 
 
 

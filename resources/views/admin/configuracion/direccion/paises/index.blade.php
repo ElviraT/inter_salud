@@ -8,15 +8,20 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card sombra p-2">
-                    <div class="col-md-4 mt-2 mb-2">
-                        @can('countries.create')
-                            <button type="button" class="btn-transition btn btn-outline-primary" onclick="loading_show();"
-                                data-toggle="modal" data-target=".bd-example-modal-sm">
-                                <span class="btn-icon-wrapper pr-2 opacity-7">
-                                    <i data-feather="plus-circle" class="feather-icon"></i>
-                                </span>
-                            </button>
-                        @endcan
+                    <div class="row">
+                        <div class="col-md-11">
+                            <h3>{{ __('List Country') }}</h3>
+                        </div>
+                        <div class="col-md-1">
+                            @can('countries.create')
+                                <button type="button" class="btn-transition btn btn-outline-primary" data-toggle="modal"
+                                    data-action="{{ route('countries.store') }}" data-target=".bd-example-modal-sm">
+                                    <span class="btn-icon-wrapper pr-2 opacity-7">
+                                        <i data-feather="plus-circle" class="feather-icon"></i>
+                                    </span>
+                                </button>
+                            @endcan
+                        </div>
                     </div>
                 </div>
                 <div class="card sombra p-2">
@@ -40,7 +45,8 @@
                                                 @can('countries.edit')
                                                     <a href="#" type="button" data-toggle="modal"
                                                         data-target="#modal_pais" class="btn-transition btn btn-outline-success"
-                                                        data-record-id="{{ $resultado['id'] }}">
+                                                        data-record-id="{{ $resultado['id'] }}" title="{{ __('Edit Country') }}"
+                                                        data-action="{{ route('countries.update', $resultado) }}">
                                                         <span class="btn-icon-wrapper pr-2 opacity-7">
                                                             <i data-feather="edit-3" class="feather-icon"></i>
                                                         </span>
@@ -51,7 +57,7 @@
                                                         data-target="#confirm-delete" data-record-id="{{ $resultado->id }}"
                                                         data-record-title="{{ 'el pais ' }}{{ $resultado->name }}"
                                                         data-action="{{ route('countries.destroy', $resultado->id) }}"
-                                                        title="{{ __('Delete Role') }}"
+                                                        title="{{ __('Delete Country') }}"
                                                         class="btn-transition btn btn-outline-danger">
                                                         <span class="btn-icon-wrapper pr-2 opacity-7">
                                                             <i data-feather="trash-2" class="feather-icon"></i>

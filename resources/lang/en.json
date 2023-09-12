@@ -1143,5 +1143,11 @@
     "This process is irreversible": "This process is irreversible.",
     "Do you want to continue": "Do you want to continue?",
     "Edit Role": "Edit Role",
-    "Delete Role": "Delete Role"
+    "Delete Role": "Delete Role",
+    "List Country": "List Country",
+    "Edit Country": "Edit Country",
+    "Delete Country": "Delete Country",
+    "List State": "List State",
+    "Edit State": "Edit State",
+    "Delete State": "Delete State"
 }
