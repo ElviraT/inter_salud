@@ -1149,5 +1149,8 @@
     "Delete Country": "Delete Country",
     "List State": "List State",
     "Edit State": "Edit State",
-    "Delete State": "Delete State"
+    "Delete State": "Delete State",
+    "List City": "List City",
+    "Edit City": "Edit City",
+    "Delete City": "Delete City"
 }

@@ -6,4 +6,5 @@ return [
     'Direction' => 'Dirección',
     'Country' => 'País',
     'State' => 'Estado',
+    'City' => 'Ciudad',
 ];

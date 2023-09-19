@@ -1148,7 +1148,10 @@
     "Delete Country": "Eliminar País",
     "List State": "Lista de Estados",
     "Edit State": "Editar Estado",
-    "Delete State": "Eliminar Estado"
+    "Delete State": "Eliminar Estado",
+    "List City": "Lista de Ciudades",
+    "Edit City": "Editar Ciudad",
+    "Delete City": "Eliminar Ciudad"
 
 
 

@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\Admin\ComboController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\configuracion\direccion\CountryController;
 use App\Http\Controllers\Admin\configuracion\direccion\StateController;
+use App\Http\Controllers\Admin\configuracion\direccion\CityController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
@@ -23,11 +25,16 @@ Route::middleware(['auth', 'translate'])->group(function () {
     Route::resource('roles', RoleController::class)->except(['show'])->names('roles');
     Route::resource('countries', CountryController::class)->except(['show'])->names('countries');
     Route::resource('states', StateController::class)->except(['show'])->names('states');
+    Route::resource('cities', CityController::class)->except(['show'])->names('cities');
     Route::resource('users', UserController::class)->names('users');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::controller(ComboController::class)->prefix('combo')->group(function () {
+        Route::match(['get', 'post'], '/{country}/state', 'state')->name('combo_estado');
+    });
 });
 
 require __DIR__ . '/auth.php';
