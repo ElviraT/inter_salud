@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ComboController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\configuracion\direccion\CountryController;
@@ -10,9 +11,7 @@ use App\Http\Controllers\Admin\configuracion\direccion\CityController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/lang/{language}', function ($language) {
     Session::put('language', $language);
     return redirect()->back();

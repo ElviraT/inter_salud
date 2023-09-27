@@ -13,11 +13,18 @@
                 <b class="logo-icon">
                     <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                     <!-- Dark Logo icon -->
-                    <img src="{{ asset('img/Logo.png') }}" alt="homepage" class="dark-logo" width="200" />
+                    <img src="{{ asset('img/Logo1.png') }}" alt="homepage" class="dark-logo" width="50" />
                     <!-- Light Logo icon -->
-                    <img src="{{ asset('img/Logo_blanco.png') }}" alt="homepage" class="light-logo" width="200" />
+                    <img src="{{ asset('img/logo1.png') }}" alt="homepage" class="light-logo" width="50" />
                 </b>
                 <!--End Logo icon -->
+                <!-- Logo text -->
+                <span class="logo-text">
+                    <!-- dark Logo text -->
+                    <img src="{{ asset('img/Logo2.png') }}" alt="homepage" class="dark-logo" width="150" />
+                    <!-- Light Logo text -->
+                    <img src="{{ asset('img/Logo2.png') }}" class="light-logo" alt="homepage" width="150" />
+                </span>
             </a>
             <!-- -------------------------------------------------------------- -->
             <!-- End Logo -->
@@ -103,7 +110,8 @@
                             href="{{ route('logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
                                 data-feather="log-out" class="feather-sm text-danger me-1 ms-1"></i>
                             {{ __('es.Logout') }}</a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                            style="display: none;">
                             @csrf
                         </form>
                     </div>

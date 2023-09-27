@@ -22,8 +22,9 @@ class CityController extends Controller
     public function index(Request $request)
     {
         $countries = Country::get();
+        $states = State::get();
         $cities = City::orderBy('id', 'ASC')->get();
-        return view('admin.configuracion.direccion.ciudades.index', compact('cities', 'countries'));
+        return view('admin.configuracion.direccion.ciudades.index', compact('cities', 'countries', 'states'));
     }
 
     public function store(Request $request, City $city)
@@ -33,7 +34,6 @@ class CityController extends Controller
 
             Toastr::success(__('Record added successfully'), 'Success');
         } catch (\Illuminate\Database\QueryException $e) {
-            dd($e);
             Toastr::error(__('An error occurred please try again'), 'error');
         }
         return to_route('cities.index');
@@ -55,6 +55,7 @@ class CityController extends Controller
 
             Toastr::success(__('Successfully updated registration'), 'Success');
         } catch (\Illuminate\Database\QueryException $e) {
+            dd($e);
             Toastr::error(__('An error occurred please try again'), 'error');
         }
         return to_route('cities.index');

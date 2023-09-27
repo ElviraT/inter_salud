@@ -51048,3 +51048,24 @@ body::-webkit-scrollbar-thumb {
     border: 3px solid #;
     /* creates padding around scroll thumb */
 }
+.paging_simple_numbers {
+  /* display: inline-block; */
+  float: right;
+}
+
+.paging_simple_numbers a {
+  color: black;
+  float: left !important;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+}
+
+.paging_simple_numbers a.active {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+.paging_simple_numbers a:hover:not(.active) {background-color: #448aff;}

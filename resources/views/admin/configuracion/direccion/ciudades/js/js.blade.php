@@ -5,28 +5,6 @@
 <script src="{{ asset('js/selectize.js') }}" type="text/javascript"></script>
 
 <script type="text/javascript">
-    $('#modal_ciudad').on('show.bs.modal', function(e) {
-        var modal = $(e.delegateTarget),
-            data = $(e.relatedTarget).data();
-        modal.addClass('loading');
-        $("#form-enviar").attr('action', data.action);
-        $("#method").val('post');
-        modal.removeClass('loading');
-        if (data.recordId != undefined) {
-            modal.addClass('loading');
-            $('.modal_registro_ciudad_id', modal).val(data.recordId);
-            $.getJSON('cities/' + data.recordId + '/edit', function(data) {
-                var obj = data[0];
-                var $estado = $('#state').selectize();
-                var $pais = $('#country').selectize();
-                $estado.attr('disable', false);
-                $pais[0].selectize.setValue(obj.idCountry);
-                $('#name', modal).val(obj.name);
-                $estado[0].selectize.setValue(obj.idState).load();
-                modal.removeClass('loading');
-            });
-        }
-    });
     var xhr;
     var select_country, $select_country;
     var select_state, $select_state;
@@ -64,6 +42,29 @@
     select_country = $select_country[0].selectize;
     select_state = $select_state[0].selectize;
 
+    $('#modal_ciudad').on('show.bs.modal', function(e) {
+        var modal = $(e.delegateTarget),
+            data = $(e.relatedTarget).data();
+        modal.addClass('loading');
+        $("#form-enviar").attr('action', data.action);
+        $("#method").val('post');
+        modal.removeClass('loading');
+        if (data.recordId != undefined) {
+            modal.addClass('loading');
+            $('.modal_registro_ciudad_id', modal).val(data.recordId);
+            $.getJSON('cities/' + data.recordId + '/edit', function(data) {
+                var obj = data[0];
+                var $estado = $('#state').selectize();
+                $estado.attr('disabled', false);
+                $("#form-enviar").attr('action', data.action);
+                $("#method").val('put');
+                $select_country[0].selectize.setValue(obj.idCountry, true);
+                $estado[0].selectize.setValue(obj.idState);
+                $('#name', modal).val(obj.name);
+                modal.removeClass('loading');
+            });
+        }
+    });
     $('#modal_ciudad').on('hidden.bs.modal', function(e) {
         $('#state')[0].selectize.clear();
         $('#name').val('');

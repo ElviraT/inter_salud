@@ -26,12 +26,12 @@
                     </div>
                     <div class="form-group col-md-12">
                         <label>{{ __('State') }}</label>
-                        <select id="state" name="idState" class="pickerSelectClass form-control" style="width: 100%"
-                            disabled>
+                        <select id="state" name="idState" class="pickerSelectClass form-control"
+                            style="width: 100%">
                             <option></option>
-                            {{-- @foreach ($states as $state)
+                            @foreach ($states as $state)
                                 <option value="{{ $state->id }}">{{ $state->name }}</option>
-                            @endforeach --}}
+                            @endforeach
                         </select>
                     </div>
                     <div class="col-md-12 mb-3">

@@ -16,7 +16,7 @@
     <meta name="robots" content="noindex,nofollow" />
     <link rel="stylesheet" href="{{ asset('css/flag-icons.min.css') }}" />
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/favicon.png') }}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/logo1.png') }}" />
     <!-- Custom CSS -->
     <link href="{{ asset('css/remixicon.css') }}" rel="stylesheet">
     <!--Datatable-->
