@@ -12,16 +12,20 @@ class State extends Model
     use HasFactory;
 
     protected $fillable = [
-        'idCountry','name','status'
+        'idCountry', 'name', 'status'
     ];
 
     public function country(): BelongsTo
     {
-       return $this->belongsTo(Country::class, 'idCountry');
+        return $this->belongsTo(Country::class, 'idCountry');
     }
 
     public function city(): HasMany
     {
         return $this->hasMany(City::class, 'idState');
+    }
+    public function municipality(): HasMany
+    {
+        return $this->hasMany(Municipality::class, 'idState');
     }
 }

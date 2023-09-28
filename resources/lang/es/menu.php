@@ -7,4 +7,5 @@ return [
     'Country' => 'País',
     'State' => 'Estado',
     'City' => 'Ciudad',
+    'Municipality' => 'Municipio',
 ];
