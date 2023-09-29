@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\configuracion\direccion\CountryController;
 use App\Http\Controllers\Admin\configuracion\direccion\StateController;
 use App\Http\Controllers\Admin\configuracion\direccion\CityController;
 use App\Http\Controllers\Admin\configuracion\direccion\MunicipalityController;
+use App\Http\Controllers\Admin\configuracion\direccion\ParishController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
@@ -27,6 +28,7 @@ Route::middleware(['auth', 'translate'])->group(function () {
     Route::resource('states', StateController::class)->except(['show'])->names('states');
     Route::resource('cities', CityController::class)->except(['show'])->names('cities');
     Route::resource('municipality', MunicipalityController::class)->except(['show'])->names('municipality');
+    Route::resource('parishes', ParishController::class)->except(['show'])->names('parishes');
     Route::resource('users', UserController::class)->names('users');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

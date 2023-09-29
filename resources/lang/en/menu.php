@@ -8,5 +8,5 @@ return [
     'State' => 'State',
     'City' => 'City',
     'Municipality' => 'Municipality',
-
+    'Parish' => 'Parish',
 ];

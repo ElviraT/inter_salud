@@ -1142,6 +1142,7 @@
     "You're deleting" : "You're deleting",
     "This process is irreversible": "This process is irreversible.",
     "Do you want to continue": "Do you want to continue?",
+    "No matching records found": "No matching records found",
     "Edit Role": "Edit Role",
     "Delete Role": "Delete Role",
     "List Country": "List Country",
@@ -1152,5 +1153,8 @@
     "Delete State": "Delete State",
     "List City": "List City",
     "Edit City": "Edit City",
-    "Delete City": "Delete City"
+    "Delete City": "Delete City",
+    "List Municipality": "List Municipality",
+    "Edit Municipality": "Edit Municipality",
+    "Delete Municipality": "Delete Municipality"
 }

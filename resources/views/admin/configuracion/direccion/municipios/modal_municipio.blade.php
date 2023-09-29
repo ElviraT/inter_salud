@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header modal-header-success">
                 <h5 class="modal-title" id="exampleModalLongTitle">Agregar Municipio</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="btn btn-ligth close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -26,7 +26,7 @@
                     </div>
                     <div class="col-md-12 mb-3">
                         <label for="validationCustom01">{{ __('Name') }}</label>
-                        <input type="text" class="form-control" name="nombre" id="nombre"
+                        <input type="text" class="form-control" name="name" id="name"
                             placeholder="{{ __('Name') }}" required onkeypress='return soloLetras(event)'>
                     </div>
                 </div>

@@ -8,4 +8,5 @@ return [
     'State' => 'Estado',
     'City' => 'Ciudad',
     'Municipality' => 'Municipio',
+    'Parish' => 'Parroquia',
 ];

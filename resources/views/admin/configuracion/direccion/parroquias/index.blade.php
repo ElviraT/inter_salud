@@ -1,105 +1,90 @@
-@extends('layouts.Base')
+@extends('layouts_new.base')
 @section('css')
-@include('admin.configuracion.direccion.parroquias.css.css')
-@endsection
-
-@section('banner')
-<div class="col-md-8">
-  <div class="page-header-title">
-      <h5 class="m-b-10">{{'Dirección'}}</h5>
-      <p class="m-b-0">{{'Parroquias'}}</p>
-  </div>
-</div>
-<div class="col-md-4">
-  <ul class="breadcrumb-title">
-      <li class="breadcrumb-item">
-          <a href="{{ route('parroquia')}}" onclick="loading_show();"> <i class="fa fa-home"></i> </a>
-      </li>
-      <li class="breadcrumb-item"><a href="#!">{{'Parroquias'}}</a>
-      </li>
-  </ul>
-</div>
+    @include('admin.configuracion.direccion.parroquias.css.css')
 @endsection
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-          @include('flash::message')
-           <div class="card">
-              <div class="col-md-4 mt-2 mb-2">
-                @can('parroquia')
-                <button type="button" class="btn-transition btn btn-outline-primary" data-toggle="modal" data-target=".bd-example-modal-sm" onclick="loading_show();">
-                    <span class="btn-icon-wrapper pr-2 opacity-7">
-                            <i class="fa fa-plus-circle"></i>
-                        </span>
-                    {{'Agregar'}}
-                </button>
-                @endcan
-              </div>
-            </div>
-            <div class="card">
-              @if(count($parroquias) == 0)
-                  <br>
-                    <p class="text-center">No se encontraron registros coincidentes</p>
-              @else
-
-            <div class="col-md-12 mt-3">
-                <table id="table_parroquias" class="table table-striped table-bordered" width="100%">
-                    <thead>
-                        <tr>
-                            <th>{{'Municipio'}}</th>
-                            <th>{{'Nombre'}}</th>
-                            <th>{{'Acción'}}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                      @foreach($parroquias as $resultado)
-                      @php($municipio = DB::select('select Municipio from municipios where id_Municipio ='.$resultado['Municipio_id']))
-                        <tr>
-                            <td>{{ $municipio[0]->Municipio }}</td>
-                            <td>{{ $resultado->Parroquia }}</td>
-                            <td width="20">
-                              @can('parroquia.edit')
-                                <a href="#" type="button" data-toggle="modal" data-target="#modal_parroquia" class="btn-transition btn btn-outline-success" data-record-id="{{ $resultado['id_Parroquia'] }}" onclick="loading_show();">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card sombra p-2">
+                    <div class="row">
+                        <div class="col-md-11">
+                            <h3>{{ __('List Parish') }}</h3>
+                        </div>
+                        <div class="col-md-1">
+                            @can('parishes.create')
+                                <button type="button" class="btn-transition btn btn-outline-primary" data-toggle="modal"
+                                    data-action="{{ route('parishes.store') }}" data-target=".bd-example-modal-sm">
                                     <span class="btn-icon-wrapper pr-2 opacity-7">
-                                        <i class="ti-pencil"></i>
+                                        <i data-feather="plus-circle" class="feather-icon"></i>
                                     </span>
-                                    {{'Editar'}}
-                                </a>
-                              @endcan
-                              @can('parroquia.destroy')
-                                <a href="#" type="button" data-toggle="modal" data-target="#confirm-delete5" data-record-id="{{$resultado->id_Parroquia}}" data-record-title="{{$resultado->Parroquia}}" class="btn-transition btn btn-outline-danger" onclick="loading_show();">
-                                        <span class="btn-icon-wrapper pr-2 opacity-7">
-                                            <i class="ti-eraser"></i>
-                                        </span>{{'Eliminar'}}
-                                </a>
-                              @endcan
-                            </td>
-                        </tr>
-                      @endforeach
+                                </button>
+                            @endcan
+                        </div>
+                    </div>
+                </div>
+                <div class="card sombra p-2">
+                    @if (count($parishes) == 0)
+                        <br>
+                        <p class="text-center">{{ __('No matching records found') }}</p>
+                    @else
+                        <div class="col-md-12 mt-3">
+                            <table id="AllDataTable" class="table table-striped table-bordered" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th width="26%">{{ __('Municipality') }}</th>
+                                        <th width="26%">{{ __('Name') }}</th>
+                                        <th width="20%">{{ __('Action') }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($parishes as $resultado)
+                                        <tr>
+                                            <td>{{ $resultado->municipality->name }}</td>
+                                            <td>{{ $resultado->name }}</td>
+                                            <td width="20">
+                                                @can('parishes.edit')
+                                                    <a href="#" type="button" data-toggle="modal"
+                                                        data-target="#modal_parroquia"
+                                                        class="btn-transition btn btn-outline-success"
+                                                        data-record-id="{{ $resultado['id'] }}"
+                                                        data-action="{{ route('parishes.update', $resultado) }}">
+                                                        <span class="btn-icon-wrapper pr-2 opacity-7">
+                                                            <i data-feather="edit-3" class="feather-icon"></i>
+                                                        </span>
+                                                    </a>
+                                                @endcan
+                                                @can('parishes.destroy')
+                                                    <a href="#" type="button" data-toggle="modal"
+                                                        data-target="#confirm-delete" data-record-id="{{ $resultado->id }}"
+                                                        data-record-title="{{ 'la parroquia ' }}{{ $resultado->name }}"
+                                                        data-action="{{ route('parishes.destroy', $resultado->id) }}"
+                                                        title="{{ __('Delete Parish') }}"
+                                                        class="btn-transition btn btn-outline-danger">
+                                                        <span class="btn-icon-wrapper pr-2 opacity-7">
+                                                            <i data-feather="trash-2" class="feather-icon"></i>
+                                                        </span>
+                                                    </a>
+                                                @endcan
+                                            </td>
+                                        </tr>
+                                    @endforeach
 
-                    </tbody> 
-                    <tfoot>
-                        <tr>
-                            <th>{{'Parroquia'}}</th>
-                            <th>{{'Nombre'}}</th>
-                            <th>{{'Acción'}}</th>
-                        </tr>
-                    </tfoot>                  
-                </table>
-              </div>
-               @endif
+                                </tbody>
+                            </table>
+                        </div>
+                    @endif
+                </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
 @section('modal')
     @include('admin.configuracion.direccion.parroquias.modal_parroquia')
-    @include('admin.modales.elimina_parroquia')
+    @include('admin.modales.eliminar')
 @endsection
 
 @section('js')
-  @include('admin.configuracion.direccion.parroquias.js.js')
+    @include('admin.configuracion.direccion.parroquias.js.js')
 @endsection

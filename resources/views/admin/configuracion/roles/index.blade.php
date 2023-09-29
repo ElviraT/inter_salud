@@ -26,7 +26,7 @@
                 <div class="card sombra p-2">
                     @if (count($roles) == 0)
                         <br>
-                        <p class="text-center">No se encontraron registros coincidentes</p>
+                        <p class="text-center">{{ __('No matching records found') }}</p>
                     @else
                         <div class="col-md-12 mt-3">
                             <table id="AllDataTable" class="table table-bordered table-hover" width="100%">

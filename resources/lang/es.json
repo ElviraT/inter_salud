@@ -1141,6 +1141,7 @@
     "You're deleting": "Vas a eliminar",
     "This process is irreversible": "este proceso es irreversible.",
     "Do you want to continue": "¿Deseas continuar?",
+    "No matching records found": "No se encontraron registros coincidentes",
     "Edit Role": "Editar Rol",
     "Delete Role": "Eliminar Rol",
     "List Country": "Lista de Paises",
@@ -1151,7 +1152,10 @@
     "Delete State": "Eliminar Estado",
     "List City": "Lista de Ciudades",
     "Edit City": "Editar Ciudad",
-    "Delete City": "Eliminar Ciudad"
+    "Delete City": "Eliminar Ciudad",
+    "List Municipality": "Lista de Municipios",
+    "Edit Municipality": "Editar municipios",
+    "Delete Municipality": "Eliminar municipios"
 
 
 

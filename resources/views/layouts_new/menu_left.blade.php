@@ -72,7 +72,7 @@
                         </li>
                     </ul>
                 </li>
-                @canany(['countries.index', 'states.index', 'cities.index', 'municipality.index', 'parroquia'])
+                @canany(['countries.index', 'states.index', 'cities.index', 'municipality.index', 'parishes.index'])
                     <li class="sidebar-item {{ @request()->routeIs('countries*') ? 'active' : ' ' }}">
                         <a class="sidebar-link has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
                                 data-feather="map-pin" class="feather-icon"></i><span
@@ -105,6 +105,13 @@
                                     <a href="{{ route('municipality.index') }}" class="sidebar-link"><i
                                             class="ri-arrow-right-s-line"></i><span class="hide-menu">
                                             {{ __('menu.Municipality') }} </span></a>
+                                </li>
+                            @endcan
+                            @can('parishes.index')
+                                <li class="sidebar-item {{ @request()->routeIs('parishes*') ? 'active' : ' ' }}">
+                                    <a href="{{ route('parishes.index') }}" class="sidebar-link"><i
+                                            class="ri-arrow-right-s-line"></i><span class="hide-menu">
+                                            {{ __('menu.Parish') }} </span></a>
                                 </li>
                             @endcan
                         </ul>
