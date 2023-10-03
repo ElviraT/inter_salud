@@ -1,6 +1,6 @@
 <?php
 return [
-    'Configuration' => 'Configuración',
+    'Configuration' => 'Configuración General',
     'Sistem' => 'Sistema',
     'Role' => 'Roles',
     'Direction' => 'Dirección',
@@ -9,4 +9,7 @@ return [
     'City' => 'Ciudad',
     'Municipality' => 'Municipio',
     'Parish' => 'Parroquia',
+    'Prefix' => 'Prefijo',
+    'Sex' => 'Sexo',
+    'Status' => 'Status',
 ];

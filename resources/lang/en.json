@@ -1155,6 +1155,15 @@
     "Edit City": "Edit City",
     "Delete City": "Delete City",
     "List Municipality": "List Municipality",
-    "Edit Municipality": "Edit Municipality",
-    "Delete Municipality": "Delete Municipality"
+    "Edit Municipality": "Edit municipality",
+    "Delete Municipality": "Delete municipality",
+    "List Prefix": "List Prefixes",
+    "Edit Prefix": "Edit prefix",
+    "Delete Prefix": "Delete prefix",
+    "List Sex": "List Sexes",
+    "Edit Sex": "Edit sex",
+    "Delete Sex": "Delete sex",
+    "List Status": "List Status",
+    "Edit Status": "Edit status",
+    "Delete Status": "Delete status"
 }

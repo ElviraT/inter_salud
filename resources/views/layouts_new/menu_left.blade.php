@@ -52,15 +52,16 @@
                     <span class="hide-menu">{{ __('menu.Configuration') }}</span>
                 </li>
 
-                <li class="sidebar-item {{ @request()->routeIs('roles*') ? 'active' : ' ' }}">
-                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
-                            data-feather="sidebar" class="feather-icon"></i><span
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark {{ @request()->routeIs('roles*') ? 'active' : ' ' }}"
+                        href="#" aria-expanded="false"><i data-feather="sidebar" class="feather-icon"></i><span
                             class="hide-menu">{{ __('menu.Sistem') }}
                         </span></a>
                     <ul aria-expanded="false" class="collapse first-level">
                         @can('roles.index')
-                            <li class="sidebar-item {{ @request()->routeIs('roles*') ? 'active' : ' ' }}">
-                                <a href="{{ route('roles.index') }}" class="sidebar-link"><i
+                            <li class="sidebar-item">
+                                <a href="{{ route('roles.index') }}"
+                                    class="sidebar-link {{ @request()->routeIs('roles*') ? 'active' : ' ' }}"><i
                                         class="ri-arrow-right-s-line"></i><span class="hide-menu">
                                         {{ __('menu.Role') }} </span></a>
                             </li>
@@ -72,44 +73,83 @@
                         </li>
                     </ul>
                 </li>
+                @canany(['prefixes.index', 'sexes.index'])
+                    <li class="sidebar-item">
+                        <a class="sidebar-link has-arrow waves-effect waves-dark {{ @request()->routeIs('prefix*') || @request()->routeIs('sexes*') || @request()->routeIs('status*') ? 'active' : ' ' }}"
+                            href="#" aria-expanded="false"><i data-feather="arrow-down-circle"
+                                class="feather-icon"></i><span class="hide-menu">{{ __('Combos') }}
+                            </span></a>
+                        <ul aria-expanded="false" class="collapse first-level">
+                            @can('status.index')
+                                <li class="sidebar-item">
+                                    <a href="{{ route('status.index') }}"
+                                        class="sidebar-link {{ @request()->routeIs('status*') ? 'active' : ' ' }}"><i
+                                            class="ri-arrow-right-s-line"></i><span class="hide-menu">
+                                            {{ __('menu.Status') }} </span></a>
+                                </li>
+                            @endcan
+                            @can('prefixes.index')
+                                <li class="sidebar-item">
+                                    <a href="{{ route('prefixes.index') }}"
+                                        class="sidebar-link {{ @request()->routeIs('prefixes*') ? 'active' : ' ' }}"><i
+                                            class="ri-arrow-right-s-line"></i><span class="hide-menu">
+                                            {{ __('menu.Prefix') }} </span></a>
+                                </li>
+                            @endcan
+                            @can('sexes.index')
+                                <li class="sidebar-item">
+                                    <a href="{{ route('sexes.index') }}"
+                                        class="sidebar-link {{ @request()->routeIs('sexes*') ? 'active' : ' ' }}"><i
+                                            class="ri-arrow-right-s-line"></i><span class="hide-menu">
+                                            {{ __('menu.Sex') }} </span></a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
+                @endcanany
                 @canany(['countries.index', 'states.index', 'cities.index', 'municipality.index', 'parishes.index'])
-                    <li class="sidebar-item {{ @request()->routeIs('countries*') ? 'active' : ' ' }}">
-                        <a class="sidebar-link has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
-                                data-feather="map-pin" class="feather-icon"></i><span
+                    <li class="sidebar-item">
+                        <a class="sidebar-link has-arrow waves-effect waves-dark {{ @request()->routeIs('countries*') || @request()->routeIs('states*') || @request()->routeIs('cities*') || @request()->routeIs('municipality*') || @request()->routeIs('parishes*') ? 'active' : ' ' }}"
+                            href="#" aria-expanded="false"><i data-feather="map-pin" class="feather-icon"></i><span
                                 class="hide-menu">{{ __('menu.Direction') }}
                             </span></a>
                         <ul aria-expanded="false" class="collapse first-level">
                             @can('countries.index')
-                                <li class="sidebar-item {{ @request()->routeIs('countries*') ? 'active' : ' ' }}">
-                                    <a href="{{ route('countries.index') }}" class="sidebar-link"><i
+                                <li class="sidebar-item">
+                                    <a href="{{ route('countries.index') }}"
+                                        class="sidebar-link {{ @request()->routeIs('countries*') ? 'active' : ' ' }}"><i
                                             class="ri-arrow-right-s-line"></i><span class="hide-menu">
                                             {{ __('menu.Country') }} </span></a>
                                 </li>
                             @endcan
                             @can('states.index')
-                                <li class="sidebar-item {{ @request()->routeIs('states*') ? 'active' : ' ' }}">
-                                    <a href="{{ route('states.index') }}" class="sidebar-link"><i
+                                <li class="sidebar-item">
+                                    <a href="{{ route('states.index') }}"
+                                        class="sidebar-link {{ @request()->routeIs('states*') ? 'active' : ' ' }}"><i
                                             class="ri-arrow-right-s-line"></i><span class="hide-menu">
                                             {{ __('menu.State') }} </span></a>
                                 </li>
                             @endcan
                             @can('cities.index')
-                                <li class="sidebar-item {{ @request()->routeIs('cities*') ? 'active' : ' ' }}">
-                                    <a href="{{ route('cities.index') }}" class="sidebar-link"><i
+                                <li class="sidebar-item">
+                                    <a href="{{ route('cities.index') }}"
+                                        class="sidebar-link {{ @request()->routeIs('cities*') ? 'active' : ' ' }}"><i
                                             class="ri-arrow-right-s-line"></i><span class="hide-menu">
                                             {{ __('menu.City') }} </span></a>
                                 </li>
                             @endcan
                             @can('municipality.index')
-                                <li class="sidebar-item {{ @request()->routeIs('municipality*') ? 'active' : ' ' }}">
-                                    <a href="{{ route('municipality.index') }}" class="sidebar-link"><i
+                                <li class="sidebar-item">
+                                    <a href="{{ route('municipality.index') }}"
+                                        class="sidebar-link {{ @request()->routeIs('municipality*') ? 'active' : ' ' }}"><i
                                             class="ri-arrow-right-s-line"></i><span class="hide-menu">
                                             {{ __('menu.Municipality') }} </span></a>
                                 </li>
                             @endcan
                             @can('parishes.index')
-                                <li class="sidebar-item {{ @request()->routeIs('parishes*') ? 'active' : ' ' }}">
-                                    <a href="{{ route('parishes.index') }}" class="sidebar-link"><i
+                                <li class="sidebar-item">
+                                    <a href="{{ route('parishes.index') }}"
+                                        class="sidebar-link {{ @request()->routeIs('parishes*') ? 'active' : ' ' }}"><i
                                             class="ri-arrow-right-s-line"></i><span class="hide-menu">
                                             {{ __('menu.Parish') }} </span></a>
                                 </li>

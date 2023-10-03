@@ -51061,11 +51061,10 @@ body::-webkit-scrollbar-thumb {
   transition: background-color .3s;
   border: 1px solid #ddd;
 }
-
-.paging_simple_numbers a.active {
-  background-color: #4CAF50;
-  color: white;
-  border: 1px solid #4CAF50;
+a.paginate_button.current{
+  background-color: #1aeb72 !important;
+  color: white !important;
+  border: 1px solid #1aeb72 !important;
 }
 
 .paging_simple_numbers a:hover:not(.active) {background-color: #448aff;}

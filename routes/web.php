@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\ComboController;
+use App\Http\Controllers\Admin\configuracion\combos\PrefixController;
+use App\Http\Controllers\Admin\configuracion\combos\SexController;
+use App\Http\Controllers\Admin\configuracion\combos\StatusController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\RoleController;
@@ -30,6 +33,9 @@ Route::middleware(['auth', 'translate'])->group(function () {
     Route::resource('municipality', MunicipalityController::class)->except(['show'])->names('municipality');
     Route::resource('parishes', ParishController::class)->except(['show'])->names('parishes');
     Route::resource('users', UserController::class)->names('users');
+    Route::resource('prefixes', PrefixController::class)->except(['show'])->names('prefixes');
+    Route::resource('sexes', SexController::class)->except(['show'])->names('sexes');
+    Route::resource('status', StatusController::class)->except(['show'])->names('status');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
