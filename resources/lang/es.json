@@ -1164,12 +1164,9 @@
     "Delete Sex": "Eliminar sexos",
     "List Status": "Lista Status",
     "Edit Status": "Editar status",
-    "Delete Status": "Eliminar status"
-
-
-
-
-
-
+    "Delete Status": "Eliminar status",
+    "List Marital Status": "Lista de Estados Civiles",
+    "Edit Marital Status": "Editar estado civil",
+    "Delete Marital Status": "Eliminar estado civil"
 
 }

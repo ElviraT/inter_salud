@@ -1165,5 +1165,8 @@
     "Delete Sex": "Delete sex",
     "List Status": "List Status",
     "Edit Status": "Edit status",
-    "Delete Status": "Delete status"
+    "Delete Status": "Delete status",
+    "List Marital Status": "List Marital Status",
+    "Edit Marital Status": "Edit marital status",
+    "Delete Marital Status": "Delete marital status"
 }

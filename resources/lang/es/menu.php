@@ -12,4 +12,5 @@ return [
     'Prefix' => 'Prefijo',
     'Sex' => 'Sexo',
     'Status' => 'Status',
+    'Marital Status' => 'Estado Civil',
 ];

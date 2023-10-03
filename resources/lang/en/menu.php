@@ -12,5 +12,6 @@ return [
     'Prefix' => 'Prefix',
     'Sex' => 'Sex',
     'Status' => 'Status',
+    'Marita Status' => 'Marita Status',
 
 ];

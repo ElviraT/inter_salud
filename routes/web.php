@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ComboController;
+use App\Http\Controllers\Admin\configuracion\combos\MaritalStatusController;
 use App\Http\Controllers\Admin\configuracion\combos\PrefixController;
 use App\Http\Controllers\Admin\configuracion\combos\SexController;
 use App\Http\Controllers\Admin\configuracion\combos\StatusController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\Admin\configuracion\direccion\StateController;
 use App\Http\Controllers\Admin\configuracion\direccion\CityController;
 use App\Http\Controllers\Admin\configuracion\direccion\MunicipalityController;
 use App\Http\Controllers\Admin\configuracion\direccion\ParishController;
+use App\Http\Controllers\Admin\configuracion\LimitController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
@@ -26,6 +28,7 @@ Route::middleware(['auth', 'translate'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::resource('limits', LimitController::class)->except(['show'])->names('limits');
     Route::resource('roles', RoleController::class)->except(['show'])->names('roles');
     Route::resource('countries', CountryController::class)->except(['show'])->names('countries');
     Route::resource('states', StateController::class)->except(['show'])->names('states');
@@ -36,6 +39,7 @@ Route::middleware(['auth', 'translate'])->group(function () {
     Route::resource('prefixes', PrefixController::class)->except(['show'])->names('prefixes');
     Route::resource('sexes', SexController::class)->except(['show'])->names('sexes');
     Route::resource('status', StatusController::class)->except(['show'])->names('status');
+    Route::resource('maritalStatus', MaritalStatusController::class)->except(['show'])->names('maritalStatus');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
