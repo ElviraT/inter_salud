@@ -17,8 +17,10 @@ return new class extends Migration
             $table->integer('medico');
             $table->integer('asistente');
             $table->integer('paciente');
-            $table->boolean('status');
+            $table->unsignedBigInteger('status');
             $table->timestamps();
+
+            $table->foreign('status')->references('id')->on('statuses');
         });
     }
 

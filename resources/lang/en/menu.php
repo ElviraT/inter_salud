@@ -13,5 +13,8 @@ return [
     'Sex' => 'Sex',
     'Status' => 'Status',
     'Marita Status' => 'Marita Status',
+    'Limit' => 'Limit of Registrations',
+    'Doctor' => 'Doctors',
+
 
 ];

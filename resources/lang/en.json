@@ -1168,5 +1168,8 @@
     "Delete Status": "Delete status",
     "List Marital Status": "List Marital Status",
     "Edit Marital Status": "Edit marital status",
-    "Delete Marital Status": "Delete marital status"
+    "Delete Marital Status": "Delete marital status",
+    "List Limit": "Record Limit List",
+    "Edit Limit": "Edit Record Limit",
+    "Delete Limit": "Remove Record Limit"
 }

@@ -1167,6 +1167,9 @@
     "Delete Status": "Eliminar status",
     "List Marital Status": "Lista de Estados Civiles",
     "Edit Marital Status": "Editar estado civil",
-    "Delete Marital Status": "Eliminar estado civil"
+    "Delete Marital Status": "Eliminar estado civil",
+    "List Limit": "Lista Límite de Registros de Usuarios",
+    "Edit Limit": "Editar Límite de Registros",
+    "Delete Limit": "Eliminar Límite de Registros"
 
 }

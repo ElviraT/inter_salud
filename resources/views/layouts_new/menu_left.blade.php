@@ -53,7 +53,7 @@
                 </li>
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link has-arrow waves-effect waves-dark {{ @request()->routeIs('roles*') ? 'active' : ' ' }}"
+                    <a class="sidebar-link has-arrow waves-effect waves-dark {{ @request()->routeIs('roles*') || @request()->routeIs('limits.*') ? 'active' : ' ' }}"
                         href="#" aria-expanded="false"><i data-feather="sidebar" class="feather-icon"></i><span
                             class="hide-menu">{{ __('menu.Sistem') }}
                         </span></a>
@@ -66,6 +66,14 @@
                                         {{ __('menu.Role') }} </span></a>
                             </li>
                         @endcan
+                        @can('limits.index')
+                            <li class="sidebar-item">
+                                <a href="{{ route('limits.index') }}"
+                                    class="sidebar-link {{ @request()->routeIs('limits.*') ? 'active' : ' ' }}"><i
+                                        class="ri-arrow-right-s-line"></i><span class="hide-menu">
+                                        {{ __('menu.Limit') }} </span></a>
+                            </li>
+                        @endcan
                         <li class="sidebar-item">
                             <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/ltr/sidebar-type-overlaysidebar.html"
                                 class="sidebar-link"><i class="mdi mdi-view-day"></i><span class="hide-menu"> Overlay
@@ -73,7 +81,7 @@
                         </li>
                     </ul>
                 </li>
-                @canany(['prefixes.index', 'sexes.index'])
+                @canany(['prefixes.index', 'sexes.index', 'maritalStatus.index', 'status.index'])
                     <li class="sidebar-item">
                         <a class="sidebar-link has-arrow waves-effect waves-dark {{ @request()->routeIs('prefix*') || @request()->routeIs('sexes*') || @request()->routeIs('status*') || @request()->routeIs('maritalStatus*') ? 'active' : ' ' }}"
                             href="#" aria-expanded="false"><i data-feather="arrow-down-circle"
@@ -160,6 +168,24 @@
                                         class="sidebar-link {{ @request()->routeIs('parishes*') ? 'active' : ' ' }}"><i
                                             class="ri-arrow-right-s-line"></i><span class="hide-menu">
                                             {{ __('menu.Parish') }} </span></a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
+                @endcanany
+                @canany(['usersm.index'])
+                    <li class="sidebar-item">
+                        <a class="sidebar-link has-arrow waves-effect waves-dark {{ @request()->routeIs('usersm*') ? 'active' : ' ' }}"
+                            href="#" aria-expanded="false"><i data-feather="users" class="feather-icon"></i><span
+                                class="hide-menu">{{ __('Usuarios') }}
+                            </span></a>
+                        <ul aria-expanded="false" class="collapse first-level">
+                            @can('usersm.index')
+                                <li class="sidebar-item">
+                                    <a href="{{ route('usersm.index') }}"
+                                        class="sidebar-link {{ @request()->routeIs('usersm*') ? 'active' : ' ' }}"><i
+                                            class="ri-arrow-right-s-line"></i><span class="hide-menu">
+                                            {{ __('menu.Doctor') }} </span></a>
                                 </li>
                             @endcan
                         </ul>
