@@ -50,6 +50,9 @@ Route::middleware(['auth', 'translate'])->group(function () {
 
     Route::controller(ComboController::class)->prefix('combo')->group(function () {
         Route::match(['get', 'post'], '/{country}/state', 'state')->name('combo_estado');
+        Route::match(['get', 'post'], '/{state}/city', 'city')->name('combo_ciudad');
+        Route::match(['get', 'post'], '/{state}/municipality', 'municipality')->name('combo_municipio');
+        Route::match(['get', 'post'], '/{municipality}/parish', 'parish')->name('combo_parroquia');
     });
 });
 

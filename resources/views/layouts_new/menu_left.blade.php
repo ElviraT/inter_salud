@@ -183,7 +183,7 @@
                             @can('usersm.index')
                                 <li class="sidebar-item">
                                     <a href="{{ route('usersm.index') }}"
-                                        class="sidebar-link {{ @request()->routeIs('usersm*') ? 'active' : ' ' }}"><i
+                                        class="sidebar-link {{ @request()->routeIs('usersm.*') ? 'active' : ' ' }}"><i
                                             class="ri-arrow-right-s-line"></i><span class="hide-menu">
                                             {{ __('menu.Doctor') }} </span></a>
                                 </li>

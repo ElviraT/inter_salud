@@ -25,7 +25,7 @@
         var dtn = new Date();
         dtn.setFullYear(new Date().getFullYear() - 18);
         //Date picker
-        $('#fechNac').datepicker({
+        $('#brithday').datepicker({
             autoclose: true,
             format: 'yyyy-mm-dd',
             viewMode: "years",
@@ -123,4 +123,102 @@
     if (selectedTab) {
         $('#' + selectedTab).tab('show');
     }
+
+    var xhr;
+    var xhr2;
+    var xhr3;
+    var select_state, $select_state;
+    var select_city, $select_city;
+    var select_municipality, $select_municipality;
+    var select_parish, $select_parish;
+
+    $select_state = $('#idState').selectize({
+        loadingClass: 'loading',
+        onChange: function(value) {
+            if (!value.length) return;
+            /*listar ciudades*/
+            select_city.disable();
+            select_city.clearOptions();
+            select_city.load(function(callback) {
+                xhr && xhr.abort();
+                xhr = $.ajax({
+                    url: '../combo/' + value + '/city',
+                    success: function(results) {
+                        select_city.enable();
+                        callback(results);
+                    },
+                    error: function() {
+                        callback();
+                    }
+                })
+            });
+            /*listar municipios*/
+            select_municipality.disable();
+            select_municipality.clearOptions();
+            select_municipality.load(function(callback) {
+                xhr2 && xhr2.abort();
+                xhr2 = $.ajax({
+                    url: '../combo/' + value + '/municipality',
+                    success: function(results) {
+                        select_municipality.enable();
+                        callback(results);
+                    },
+                    error: function() {
+                        callback();
+                    }
+                })
+            });
+        }
+    });
+
+    $select_city = $('#idCity').selectize({
+        labelField: 'name',
+        valueField: 'id',
+        searchField: ['name'],
+        loadingClass: 'loading',
+    });
+
+    $select_municipality = $('#idMunicipality').selectize({
+        labelField: 'name',
+        valueField: 'id',
+        searchField: ['name'],
+        loadingClass: 'loading',
+        preload: true,
+
+        onChange: function(value) {
+            if (!value.length) return;
+            /*listar parroquias*/
+            select_parish.disable();
+            select_parish.clearOptions();
+            select_parish.load(function(callback) {
+                xhr3 && xhr3.abort();
+                xhr3 = $.ajax({
+                    url: '../combo/' + value + '/parish',
+                    success: function(results) {
+                        select_parish.enable();
+                        callback(results);
+                    },
+                    error: function() {
+                        callback();
+                    }
+                })
+            });
+        }
+    });
+
+    $select_parish = $('#idParish').selectize({
+        labelField: 'name',
+        valueField: 'id',
+        searchField: ['name'],
+        loadingClass: 'loading'
+    });
+
+    select_city = $select_city[0].selectize;
+    select_parish = $select_parish[0].selectize;
+    select_municipality = $select_municipality[0].selectize;
+    select_state = $select_state[0].selectize;
+
+    select_city.disable();
+    select_municipality.disable();
+    select_parish.disable();
 </script>

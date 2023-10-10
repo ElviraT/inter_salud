@@ -1,6 +1,7 @@
 @extends('layouts_new.base')
 
 @section('css')
+    @include('admin.configuracion.usuarios.userm.css.css')
     <!-- selectize -->
     <link href="{{ asset('css/selectize.min.css') }}" rel="stylesheet" type="text/css" />
 @endsection
