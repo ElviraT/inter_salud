@@ -40,9 +40,9 @@
                                 <tbody>
                                     @foreach ($usersm as $resultado)
                                         <tr>
-                                            <td>{{ $resultado->user->first_name . ' ' . $resultado->user->last_name }}</td>
+                                            <td>{{ $resultado->user->name . ' ' . $resultado->user->last_name }}</td>
                                             <td class="avatar"><img alt="avatar"
-                                                    @if ($resultado->user->avatar == '') src="{{ Avatar::create($resultado->user->first_name . ' ' . $resultado->user->last_name)->toBase64() }}" @else src="{{ 'avatars/' . str_replace('\\', '/', $resultado->user->avatar) }}" @endif>
+                                                    @if ($resultado->user->avatar == '') src="{{ Avatar::create($resultado->user->first_name . ' ' . $resultado->user->last_name)->toBase64() }}" @else src="{{ str_replace('\\', '/', $resultado->user->avatar) }}" @endif>
                                             </td>
                                             <td>{{ $resultado->ncolegio }}</td>
                                             <td>{{ $resultado->register }}</td>

@@ -17,4 +17,9 @@ class Status extends Model
     {
         return $this->hasMany(Limit::class, 'status');
     }
+
+    public function userm()
+    {
+        return $this->hasOne(Doctor::class, 'idStatus');
+    }
 }

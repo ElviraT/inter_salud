@@ -20,6 +20,7 @@ use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class DoctorController extends Controller
 {
@@ -55,7 +56,6 @@ class DoctorController extends Controller
             $estado = State::pluck("name", "id");
             $municipio = Municipality::pluck("name", "id");
             $parroquia = Parish::pluck("name", "id");
-            $roles = Role::pluck("name", "id");
             return view('admin.configuracion.usuarios.userm.create')->with(compact('sexo', 'prefijo', 'estadoC', 'status', 'nacionalidad', 'ciudad', 'estado', 'municipio', 'parroquia', 'roles'));
         } else {
             Toastr::error('No se pueden crear mas de ' . $limite->medico . ' medicos');
@@ -71,11 +71,14 @@ class DoctorController extends Controller
                 $datau = [
                     'name' => $request->name,
                     'last_name' => $request->last_name,
+                    'email' => $request->email,
+                    'password' => Hash::make($request->name . '123'),
                     'idPrefix' => $request->idPrefix,
                     'dni' => $request->dni,
                     'status' => $request->idStatus,
                 ];
                 $user = User::create($datau);
+                $user->assignRole('2');
                 $datam = [
                     'idUser' => $user->id,
                     'idSex' => $request->idSex,
@@ -89,16 +92,15 @@ class DoctorController extends Controller
                     'brithday' => $request->brithday,
                     'register' => $request->register,
                     'ncolegio' => $request->ncolegio,
-
                 ];
+
                 $medico = Doctor::create($datam);
 
                 $this->_procesarArchivo($request, $user->id, 'medico');
                 DB::commit();
                 Toastr::success(__('Record added successfully'), 'Success');
-                return to_route('usersm.create', $medico->id);
+                return to_route('usersm.edit', $medico->id);
             } catch (\Illuminate\Database\QueryException $e) {
-                dd($e);
                 DB::rollBack();
                 Toastr::error(__('An error occurred please try again'), 'error');
                 return to_route('usersm.create');
@@ -139,5 +141,18 @@ class DoctorController extends Controller
     public function separadorDirectorios($path)
     {
         return str_replace(['\\', '/'], DIRECTORY_SEPARATOR, $path);
+    }
+    public function edit(Doctor $usersm)
+    {
+        $sexo = Sex::pluck("name", "id");
+        $prefijo = Prefix::pluck("name", "id");
+        $estadoC = MaritalStatus::pluck("name", "id");
+        $status = Status::pluck("name", "id");
+        $nacionalidad = Country::pluck("name", "id");
+        $ciudad = City::pluck("name", "id");
+        $estado = State::pluck("name", "id");
+        $municipio = Municipality::pluck("name", "id");
+        $parroquia = Parish::pluck("name", "id");
+        return view('admin.configuracion.usuarios.userm.edit')->with(compact('usersm', 'sexo', 'prefijo', 'estadoC', 'status', 'nacionalidad', 'ciudad', 'estado', 'municipio', 'parroquia'));
     }
 }

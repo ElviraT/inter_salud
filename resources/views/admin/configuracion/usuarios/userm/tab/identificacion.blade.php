@@ -59,6 +59,12 @@
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
+                    <label>{{ __('Email') }}</label>
+                    <input type="email" class="form-control" name="email" id="email"
+                        placeholder="{{ __('Email') }}" value="{{ isset($medico) ? $medico->email : null }}"
+                        required maxlength="150">
+                </div>
+                <div class="col-md-6 mb-3">
                     <label>{{ 'Registro MPPS' }}</label>
                     <input type="text" class="form-control" name="register" id="register"
                         placeholder="Registro MPPS"
@@ -98,7 +104,19 @@
                         'required' => 'required',
                     ]) !!}
                 </div>
-                <div class="col-md-6 mb-3">
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-4 p-2">
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <label>{{ 'Imagen de Perfil' }}</label>
+                    <input type="file" name="avatar" id="avatar">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-4 mb-3">
                     <label>{{ __('menu.State') }}:</label>
                     {!! Form::select('idState', $estado, isset($medico) ? $medico->id_Estado : null, [
                         'placeholder' => 'Seleccione',
@@ -107,7 +125,7 @@
                         'required' => 'required',
                     ]) !!}
                 </div>
-                <div class="col-md-6 mb-3">
+                <div class="col-md-4 mb-3">
                     <label>{{ __('menu.Municipality') }}:</label>
                     {!! Form::select('idMunicipality', $municipio, isset($medico) ? $medico->id_Municipio : null, [
                         'placeholder' => 'Seleccione',
@@ -116,7 +134,7 @@
                         'required' => 'required',
                     ]) !!}
                 </div>
-                <div class="col-md-6 mb-3">
+                <div class="col-md-4 mb-3">
                     <label>{{ __('menu.City') }}:</label>
                     {!! Form::select('idCity', $ciudad, isset($medico) ? $medico->id_Ciudad : null, [
                         'placeholder' => 'Seleccione',
@@ -125,7 +143,7 @@
                         'required' => 'required',
                     ]) !!}
                 </div>
-                <div class="col-md-6 mb-3">
+                <div class="col-md-4 mb-3">
                     <label>{{ __('menu.Parish') }}:</label>
                     {!! Form::select('idParish', $parroquia, isset($medico) ? $medico->id_Parroquia : null, [
                         'placeholder' => 'Seleccione',
@@ -134,7 +152,7 @@
                         'required' => 'required',
                     ]) !!}
                 </div>
-                <div class="col-md-6 mb-3">
+                <div class="col-md-4 mb-3">
                     {!! Form::label('statusm', 'Status:') !!}
                     {!! Form::select('idStatus', $status, isset($medico) ? $medico->Status_Medico_id : null, [
                         'placeholder' => 'Seleccione',
@@ -142,14 +160,6 @@
                         'id' => 'idStatus',
                         'required' => 'required',
                     ]) !!}
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12 col-lg-4 p-2">
-            <div class="row">
-                <div class="col-md-12">
-                    <label>{{ 'Imagen de Perfil' }}</label>
-                    <input type="file" name="avatar" id="avatar">
                 </div>
             </div>
         </div>
